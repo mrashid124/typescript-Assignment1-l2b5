@@ -1,4 +1,3 @@
-// 
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -37,38 +36,27 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 {
     // 
-    function runExamples() {
+    function squareAsync(num) {
         return __awaiter(this, void 0, void 0, function () {
-            var result, error_1, result, error_2;
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, squareAsync(4)];
-                    case 1:
-                        result = _a.sent();
-                        console.log("Output after 1s:", result);
-                        return [3 /*break*/, 3];
-                    case 2:
-                        error_1 = _a.sent();
-                        console.error("Error:", error_1.message);
-                        return [3 /*break*/, 3];
-                    case 3:
-                        _a.trys.push([3, 5, , 6]);
-                        return [4 /*yield*/, squareAsync(-3)];
-                    case 4:
-                        result = _a.sent();
-                        console.log("Output after 1s:", result);
-                        return [3 /*break*/, 6];
-                    case 5:
-                        error_2 = _a.sent();
-                        console.error("Error:", error_2.message);
-                        return [3 /*break*/, 6];
-                    case 6: return [2 /*return*/];
-                }
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        setTimeout(function () {
+                            if (num < 0) {
+                                reject(new Error("Negative number not allowed"));
+                            }
+                            else {
+                                resolve(num * num);
+                            }
+                        }, 1000);
+                    })];
             });
         });
     }
-    runExamples();
+    squareAsync(4)
+        .then(console.log)
+        .catch(console.error);
+    squareAsync(-3)
+        .then(console.log)
+        .catch(console.error);
     // 
 }
